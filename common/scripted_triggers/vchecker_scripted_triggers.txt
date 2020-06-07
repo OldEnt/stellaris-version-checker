@@ -1,6 +1,6 @@
 ### Currently WIP
 
-is_version = {
+is_stellaris_version = {
 	switch = {
         trigger = has_global_flag
 		vchecker_2_7 = { prev = { change_variable = { which = vchecker_stellaris_version value = 2.7 } } }
