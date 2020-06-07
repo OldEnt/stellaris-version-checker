@@ -1,3 +1,5 @@
+### Stellaris version checker (vchecker). Feel free to copy and modify. Best implemented into a mod by copying all vchecker files into your mod for ease of update. Credit is welcome but not necessary. - OldEnt
+
 ### Currently WIP
 
 is_stellaris_version = {
