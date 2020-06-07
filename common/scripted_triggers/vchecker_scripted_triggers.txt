@@ -1,0 +1,10 @@
+### Currently WIP
+
+is_version = {
+	switch = {
+        trigger = has_global_flag
+		vchecker_2_7 = { prev = { change_variable = { which = vchecker_stellaris_version value = 2.7 } } }
+		vchecker_2_6 = { prev = { change_variable = { which = vchecker_stellaris_version value = 2.6 } } }
+		default = { prev = { change_variable = { which = vchecker_stellaris_version value = 0 } } }
+	}
+}

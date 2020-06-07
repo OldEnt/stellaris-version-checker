@@ -1,0 +1,110 @@
+namespace = vchecker
+
+### Flags mod as present
+
+country_event = {
+        id = vchecker.0
+        hide_window = yes
+		fire_only_once = yes
+        trigger = {
+                always = yes
+        }
+        immediate = {
+                set_global_flag = vchecker_installed
+        }
+}
+
+### Assigns appropriate pop flag to determine if the game is 2.7+ or 2.6 and earlier. Each scripted effect works only for specified version as every_pop effect was replaced with every_galaxy_pop in 2.7.
+
+planet_event = {
+        id = vchecker.1
+        hide_window = yes
+		fire_only_once = yes
+        trigger = {
+                always = yes
+        }
+        immediate = {
+				vchecker_every_galaxy_pop_effect_check = yes
+        }
+}
+
+planet_event = {
+        id = vchecker.2
+        hide_window = yes
+		fire_only_once = yes
+        trigger = {
+                always = yes
+        }
+        immediate = {
+				vchecker_every_pop_effect_check = yes
+        }
+}
+
+### Waits one day for pops to receive pop flag and sets up a global flag indicating Stellaris version
+
+country_event = {
+        id = vchecker.3
+        hide_window = yes
+		fire_only_once = yes
+        trigger = {
+                always = yes
+        }
+        immediate = {
+			country_event = {
+			id = vchecker.4
+			days = 1
+			random = 0
+		}
+        }
+}
+
+country_event = {
+        id = vchecker.4
+        hide_window = yes
+		is_triggered_only = yes
+        trigger = {
+                always = yes
+        }
+        immediate = {
+				vchecker_guess_stellaris_version = yes
+        }
+}
+
+### Test event
+
+country_event = {
+	id = vchecker.100
+	title = vchecker.100.name
+	picture = GFX_evt_friendly_amoeba
+	show_sound = event_default
+	location = root	
+	is_triggered_only = yes
+	
+	desc = {
+		text = vchecker.100.desc_2_7
+		trigger = {
+			has_global_flag = vchecker_2_7
+		}
+	}
+	
+	desc = {
+		text = vchecker.100.desc_2_6
+		trigger = {
+			has_global_flag = vchecker_2_6
+		}
+	}
+	
+	desc = {
+		text = vchecker.100.desc_0
+		trigger = {
+			NOR = {
+				has_global_flag = vchecker_2_7
+				has_global_flag = vchecker_2_6
+			}
+		}
+	}
+	
+	option = {
+		name = vchecker.100a
+	}
+}

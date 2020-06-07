@@ -1,0 +1,3 @@
+### Variable used for advanced scripts
+
+@vchecker_stellaris_version = 0

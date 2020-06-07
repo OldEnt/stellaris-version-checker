@@ -1,0 +1,29 @@
+# Tries to guess Stellaris version by looking for version-specific configuration
+
+vchecker_every_galaxy_pop_effect_check = {
+	every_galaxy_pop = {
+		limit = { }
+		set_pop_flag = vchecker_2_7_pop
+	}
+}
+
+vchecker_every_pop_effect_check = {
+	every_pop = {
+		limit = { }
+		set_pop_flag = vchecker_2_6_pop
+	} 
+}
+
+vchecker_guess_stellaris_version = {
+	if = {
+		limit = {
+			any_owned_pop = { has_pop_flag = vchecker_2_7_pop } }
+			set_global_flag = vchecker_2_7
+	}
+	else_if = {
+		limit = {
+			any_owned_pop = { has_pop_flag = vchecker_2_6_pop } }
+			set_global_flag = vchecker_2_6
+	}
+	else = { break = yes }
+}
